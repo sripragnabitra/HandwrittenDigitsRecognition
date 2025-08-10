@@ -1,8 +1,9 @@
-# Handwritten Digit Recognition — Model Comparison
+# Handwritten Digit Recognition — Model Comparison and Custom Image Input
 
 ## Overview
 This project compares **10 different machine learning and deep learning models** for recognizing handwritten digits using the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).  
 The goal is to evaluate and compare models based on **accuracy** and **training + prediction time** (kept around ~15 seconds per model).
+Then the custom handwritten digit can be given as test image and the most accurate model will predict the digit.
 
 ## Dataset
 The MNIST dataset consists of:
@@ -33,6 +34,9 @@ The MNIST dataset consists of:
 - **Training + Prediction time** capped at ~15 seconds per model
 - Accuracy measured on the 10,000-image MNIST test set
 - Models compared based on both performance and computation time
+- Altering the hyperparameters like the learning rate, pca component count, training set subset size, etc will change the model's performance.
+- I have used 15sec training time as the comparing feature.
+- Unlimited computational time will alter the accuracies of the models
 
 ## Obtained Accuracy Order
 From lowest to highest (typical for MNIST with given constraints):
@@ -60,8 +64,25 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+Run the data_loader file to pre-process the data:
+``` bash
+python utils\data_loader.py
+```
 
 ##Running the Notebooks
-- Run 00_preprocessing.ipynb to prepare the dataset.
+- Run 00_preprocessing.ipynb to know about preprocessing and data visualisation of the dataset.
 - Open each model notebook (01_logistic_regression.ipynb to 10_decision_tree.ipynb) and execute the cells.
-- Compare accuracy and runtime.
+- Each notebook will: Train the model, Evaluate accuracy (acc variable), Save the accuracy in results/accuracies.csv and Save the trained model in results/<model_name>.pkl
+
+## Testing on most accurate Model
+After all models have been trained and logged:
+```bash
+python predict_custom_image.py --image_path "path/to/your/image.png"
+```
+This script will:
+- Read all accuracies from results/accuracies.csv
+- Identify the model with the highest accuracy
+- Load the best model
+- Preprocess the image
+- Output the predicted digit using the best model in the terminal
+  
