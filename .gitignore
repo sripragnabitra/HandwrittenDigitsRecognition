@@ -1,0 +1,6 @@
+venv/
+.env
+__pycache__/
+
+processed/mnist_images.pkl
+processed/mnist_norm.pkl
