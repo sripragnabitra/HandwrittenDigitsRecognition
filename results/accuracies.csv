@@ -1,0 +1,11 @@
+model_name,accuracy_value
+Logistic Regression,0.9263
+Support Vector Machine,0.914
+K Nearest Neighbours,0.9686
+Random Forest,0.9454
+Simple CNN,0.9807
+Gradient Boost,0.9287
+Multi layer Perceptron,0.99
+Deep CNN,0.9469
+ResNet,0.8868
+Decision Tree,0.8129
