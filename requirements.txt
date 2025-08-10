@@ -1,0 +1,25 @@
+# Core scientific libraries
+numpy
+pandas
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+
+# Deep Learning
+tensorflow
+keras
+torch
+torchvision
+
+# Image Processing
+opencv-python
+Pillow
+
+# OCR
+pytesseract
+
+# Jupyter for notebooks
+jupyter
+notebook
